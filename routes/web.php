@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-dd('waled');
+    dd('waledsfgkjgfjhgfd');
     return view('welcome');
 
- // return "hi";
+    // return "hi";
 });
