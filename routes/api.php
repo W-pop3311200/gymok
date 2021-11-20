@@ -23,37 +23,33 @@ Route::get('/', function () {
 });
 
 Route::get('/user/{id}', function ($id) {
-   
-   return User::findOrFail($id);
+
+    return User::findOrFail($id);
 });
 
 Route::post('/user', function () {
-   
+
     $u = new User();
     $u->name = "farid";
     $u->email = "farid@gmail.com";
     $u->password = "123456";
     $u->save();
+});
 
- });
-
- Route::post('/register', function (Request $request) {
+Route::post('/register', function (Request $request) {
 
 
     $data = $request->validate([
         'name' => 'required'
     ]);
-   
+
     $u = new User();
     $u->name = $request->name;
     $u->email = $request->email;
     $u->password = $request->password;
-    // if($u->save()){
-    //     return "ok";
-    // }else{
-    //     return "no";
-    // }
-
- });
-
-
+    if ($u->save()) {
+        return "ok";
+    } else {
+        return "no";
+    }
+});
