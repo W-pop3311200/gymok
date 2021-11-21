@@ -43,13 +43,13 @@ Route::post('/register', function (Request $request) {
         'name' => 'required'
     ]);
 
-    $u = new User();
-    $u->name = $request->name;
-    $u->email = $request->email;
-    $u->password = $request->password;
-    if ($u->save()) {
-        return "ok";
-    } else {
-        return "no";
-    }
+    // $u = new User();
+    // $u->name = $request->name;
+    // $u->email = $request->email;
+    // $u->password = $request->password;
+    // if ($u->save()) {
+    //     return "ok";
+    // } else {
+    //     return "no";
+    // }
 });
