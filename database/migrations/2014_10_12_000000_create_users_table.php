@@ -18,8 +18,9 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->Integer('Badgenumber');
             $table->string('name');
-            $table->string('OPHONE')->unique();
-            $table->timestamp('email')->nullable();
+            // $table->string('OPHONE')->unique();
+            $table->string('OPHONE')->nullable();
+            $table->string('email')->nullable();
             $table->string('password');
             $table->Integer('Gym_plass');
             $table->rememberToken();

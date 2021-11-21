@@ -43,13 +43,17 @@ Route::post('/register', function (Request $request) {
         'name' => 'required'
     ]);
 
-    // $u = new User();
-    // $u->name = $request->name;
-    // $u->email = $request->email;
-    // $u->password = $request->password;
-    // if ($u->save()) {
-    //     return "ok";
-    // } else {
-    //     return "no";
-    // }
+    $u = new User();
+    $u->Badgenumber = $request->Badgenumber;
+    $u->name = $request->name;
+    $u->OPHONE = $request->OPHONE;
+    $u->email = $request->email;
+    $u->password = $request->password;
+    $u->Gym_plass = $request->Gym_plass;
+
+    if ($u->save()) {
+        return "ok";
+    } else {
+        return "no";
+    }
 });
