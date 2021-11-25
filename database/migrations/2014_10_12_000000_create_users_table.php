@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->Integer('Badgenumber');
             $table->string('name');
-            // $table->string('OPHONE')->unique();
+
             $table->string('OPHONE')->nullable();
             $table->string('email')->nullable();
             $table->string('password');

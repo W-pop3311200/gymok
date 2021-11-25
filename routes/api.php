@@ -1,8 +1,12 @@
 <?php
 
+
+use App\Models\User;
+use app\Models\SubSale;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\User;
+use App\Http\Controllers\Sub;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,9 +26,17 @@ Route::get('/', function () {
     return "API";
 });
 
+Route::post('/sss', [Sub::class, 'dd']);
+Route::get('/ss', [Sub::class, 'index']);
 Route::get('/user/{id}', function ($id) {
 
     return User::findOrFail($id);
+});
+
+
+Route::get('/sub', function () {
+    // dd('ss');
+    return view('subsalse@user');
 });
 
 Route::post('/user', function () {
@@ -56,4 +68,8 @@ Route::post('/register', function (Request $request) {
     } else {
         return "no";
     }
+});
+
+Route::group(['middekware' => 'auth:api', 'namespace' => 'Api'], function () {
+    Route::get('/s',  'Sub@index');
 });
