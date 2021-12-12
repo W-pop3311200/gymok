@@ -18,13 +18,38 @@ class Sub extends Controller
         $dd = dd::all();
         return  response()->json($Sall);
     }
-
-    public function dd(Request $reques)
+    public  function cla()
     {
-        $data = $reques->validate([
-            'name' => 'required'
-        ]);
-        $u = $reques->name;
-        return $u;
+        $Sall = \DB::table('Class_setup')
+            ->join('Day', 'Day.Day_id', 'Class_setup.id_Day')
+            ->get();
+        $dd = calss::all();
+        return  response()->json($Sall);
+    }
+
+    public function dd(Request $request)
+    {
+
+        // $data = $request->validate([
+        //     'name' => 'required'
+        // ]);
+        $u = new dd();
+        // $u->Sid = $request->Sid;
+        $u->Scid = $request->Scid;
+        $u->said = $request->said;
+        $u->Sdate = $request->Sdate;
+        $u->Sfrom = $request->Sfrom;
+        $u->Sto =  $request->Sto;
+        $u->Svalue = $request->Svalue;
+        $u->Sdiscount = $request->Sdiscount;
+        $u->Spaid = $request->Spaid;
+        $u->Srest = $request->Srest;
+
+
+        if ($u->save()) {
+            return "ok";
+        } else {
+            return "no";
+        }
     }
 }

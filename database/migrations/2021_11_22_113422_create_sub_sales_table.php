@@ -15,6 +15,7 @@ class CreateSubSalesTable extends Migration
     {
         Schema::create('sub_sales', function (Blueprint $table) {
             $table->id();
+            $table->integer('Sid');
             $table->integer('Scid');
             $table->integer('said');
             $table->date('Sdate');
@@ -24,6 +25,7 @@ class CreateSubSalesTable extends Migration
             $table->integer('Sdiscount');
             $table->integer('Spaid');
             $table->integer('Srest');
+            $table->integer('Gym_plass');
 
             $table->timestamps();
         });
